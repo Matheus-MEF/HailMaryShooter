@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e85a530e-0e75-4805-b8af-ccbecd01100c" name="Changes" comment="Creating main loop&#10;Connecting Game and Menu classes">
+      <change afterPath="$PROJECT_DIR$/asset/Enemy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Enemy1Shot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Enemy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Enemy2Shot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level1Bg6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2Bg0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2Bg1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2Bg2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2Bg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Level2Bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Menu.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/MenuBg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Player1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Player1Shot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Player2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Player2Shot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/Score.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/ScoreBg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Const.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MountainShooter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MountainShooter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/menu.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Matheus-MEF&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Matheus-MEF/MountainShooter.git&quot;,
+    &quot;accountId&quot;: &quot;a59d4d66-2cd5-4812-a614-59c8d14dd2e3&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/code/menu.py" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000573439177987" />
+      <entry key="MS500" value="1.1418069356169942" />
+      <entry key="S2" value="1.6136551284381588" />
+      <entry key="S5" value="1.8225640924051039" />
+      <entry key="S10" value="1.906953406878797" />
+      <entry key="S30" value="1.9740413619328854" />
+      <entry key="S60" value="2.09580065081225" />
+      <entry key="M2" value="3.319311004196613" />
+      <entry key="M5" value="13.334663045494542" />
+      <entry key="M10" value="29.034257669579674" />
+      <entry key="M15" value="41.92497044209507" />
+      <entry key="M30" value="82.30296848387422" />
+      <entry key="H1" value="156.29598508686877" />
+      <entry key="H2" value="241.94198100743077" />
+      <entry key="H4" value="310.35592851831325" />
+      <entry key="D1" value="387.7113185040836" />
+      <entry key="W1" value="403.3226630062082" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.0228399604827227E-131" />
+      <entry key="S2" value="1.788347540223276E-33" />
+      <entry key="S5" value="7.961240958634368E-14" />
+      <entry key="S10" value="2.8215671819072454E-7" />
+      <entry key="S30" value="0.006594519727239238" />
+      <entry key="S60" value="0.09188431224903107" />
+      <entry key="M2" value="0.4904754559458506" />
+      <entry key="M5" value="1.9729762707230578" />
+      <entry key="M10" value="3.768838602022241" />
+      <entry key="M15" value="4.994637974368758" />
+      <entry key="M30" value="7.362267302217524" />
+      <entry key="H1" value="10.100864952691277" />
+      <entry key="H2" value="12.670013009631411" />
+      <entry key="H4" value="14.538948929145986" />
+      <entry key="D1" value="16.539898133516335" />
+      <entry key="W1" value="16.93291288578989" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9593187473203161" />
+      <entry key="MS500" value="1.1321542186172489" />
+      <entry key="S2" value="1.610090915199153" />
+      <entry key="S5" value="1.8209348276187598" />
+      <entry key="S10" value="1.90609785693545" />
+      <entry key="S30" value="1.9796395981356132" />
+      <entry key="S60" value="2.1825672472105966" />
+      <entry key="M2" value="3.795457985810121" />
+      <entry key="M5" value="15.278858472359527" />
+      <entry key="M10" value="32.77290527982255" />
+      <entry key="M15" value="46.89201109004292" />
+      <entry key="M30" value="89.64290506414918" />
+      <entry key="H1" value="166.37932365842087" />
+      <entry key="H2" value="254.59972937749657" />
+      <entry key="H4" value="324.88736011731936" />
+      <entry key="D1" value="404.2497031124677" />
+      <entry key="W1" value="420.25535215720316" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3E2MQx4CWTOKBy4W8GgUJ6yfE72" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "Python.menu.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/alef_/Desktop/Faculdade/Projetos/MountainShooter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.python.lsp.core.PyTypeEngineConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alef_\Desktop\Faculdade\Projetos\MountainShooter\asset" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e85a530e-0e75-4805-b8af-ccbecd01100c" name="Changes" comment="" />
+      <created>1779372201198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779372201198</updated>
+      <workItem from="1779372205751" duration="4248000" />
+      <workItem from="1779376510063" duration="758000" />
+      <workItem from="1779377293511" duration="32000" />
+      <workItem from="1779377355262" duration="138000" />
+      <workItem from="1779377519916" duration="177000" />
+      <workItem from="1779377826154" duration="50000" />
+      <workItem from="1779377956750" duration="7276000" />
+    </task>
+    <task id="LOCAL-00001" summary="Creating main loop&#10;Connecting Game and Menu classes">
+      <option name="closed" value="true" />
+      <created>1779373937594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779373937595</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creating main loop&#10;Connecting Game and Menu classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating main loop&#10;Connecting Game and Menu classes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MountainShooter$menu.coverage" NAME="menu Coverage Results" MODIFIED="1779385258492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/MountainShooter$main.coverage" NAME="main Coverage Results" MODIFIED="1779385444435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
