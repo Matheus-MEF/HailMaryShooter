@@ -11,7 +11,7 @@ class Menu:
     def __init__(self, window):
         self.window = window
         # abaixo iremos (carregar a imagem), (adicionar um retangulo invisel) e (adicionar a imgagem e ele)
-        self.surf = pg.image.load("./asset/MenuBg.png")
+        self.surf = pg.image.load("./asset/MenuBg.png").convert_alpha()
         self.rect = self.surf.get_rect(left=0,
                                        top=0)  # o retangulo já inicia nas coordenadas 0,0, porem especifiquei apenas para entendimento
 
