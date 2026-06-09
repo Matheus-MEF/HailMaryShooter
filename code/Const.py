@@ -7,6 +7,26 @@ COLOR_BLACK = (0,0,0)
 COLOR_YELLOW = (255,255,0)
 # E
 EVENT_ENEMY = pg.USEREVENT +1
+
+ENTITY_HEALTH = {
+    'Level1Bg0' : 999,
+    'Level1Bg1' : 999,
+    'Level1Bg2' : 999,
+    'Level1Bg3' : 999,
+    'Level1Bg4' : 999,
+    'Level1Bg5' : 999,
+    'Level1Bg6' : 999,
+    'Player1' : 300,
+    'Player1Shot' : 1,
+    'Player2' : 300,
+    'Player2Shot' : 1,
+    'Enemy1' : 50,
+    'Enemy1Shot' : 1,
+    'Enemy2' : 60,
+    'Enemy2Shot' : 1,
+
+}
+
 ENTITY_SPEED = {
     'Level1Bg0' : 0,
     'Level1Bg1' : 1,
@@ -20,6 +40,7 @@ ENTITY_SPEED = {
     'Enemy1'    : 1,
     'Enemy2'    : 2
 }
+
 
 # M
 MENU_OPTION = ('NEW GAME 1P',
