@@ -6,6 +6,13 @@ COLOR_WHITE = (255,255,255)
 COLOR_BLACK = (0,0,0)
 COLOR_YELLOW = (255,255,0)
 # E
+
+ENTITY_SHOT_DELAY = {
+    'Player1' : 20,
+    'Player2' : 20,
+    'Enemy1'  : 100,
+    'Enemy2'  : 90
+}
 EVENT_ENEMY = pg.USEREVENT +1
 
 ENTITY_HEALTH = {
@@ -36,9 +43,13 @@ ENTITY_SPEED = {
     'Level1Bg5' : 5,
     'Level1Bg6' : 6,
     'Player1'   : 3,
+    'Player1Shot' : 4,
     'Player2'   : 3,
+    'Player2Shot' : 4,
     'Enemy1'    : 1,
-    'Enemy2'    : 2
+    'Enemy1Shot': 4,
+    'Enemy2'    : 2,
+    'Enemy2Shot': 4
 }
 
 
@@ -64,6 +75,7 @@ PLAYER_KEY_SHOOT = {'Player1': pg.K_t,
 
 # S
 SPAWN_TIME = 4000
+
 
 # w
 WIN_WIDTH = 576

@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e85a530e-0e75-4805-b8af-ccbecd01100c" name="Changes" comment="Creating Player and Enemies&#10;Moving Player and Enemies">
-      <change afterPath="$PROJECT_DIR$/code/EntityMediator.py" afterDir="false" />
+    <list default="true" id="e85a530e-0e75-4805-b8af-ccbecd01100c" name="Changes" comment="Creating Mediator Pattern.&#10;Enemies destruction.">
+      <change afterPath="$PROJECT_DIR$/code/EnemyShot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/PlayerShot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Const.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Const.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/EntityMediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/EntityMediator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/enemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/entity.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,61 +51,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000000022" />
-      <entry key="MS500" value="1.0011712440711522" />
-      <entry key="S2" value="1.2063689514702824" />
-      <entry key="S5" value="1.7252770605146588" />
-      <entry key="S10" value="2.239464964267725" />
-      <entry key="S30" value="3.491194394778238" />
-      <entry key="S60" value="4.417362511352224" />
-      <entry key="M2" value="5.656874834217102" />
-      <entry key="M5" value="12.865344980701222" />
-      <entry key="M10" value="29.553015273591196" />
-      <entry key="M15" value="44.39583817467321" />
-      <entry key="M30" value="76.96249912272721" />
-      <entry key="H1" value="123.14545817838105" />
-      <entry key="H2" value="201.14479572573362" />
-      <entry key="H4" value="352.6045886117287" />
-      <entry key="D1" value="938.9865821328667" />
-      <entry key="W1" value="1192.0098633092582" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.000000006837044" />
+      <entry key="M2" value="1.0003672649393922" />
+      <entry key="M5" value="1.3702281167559414" />
+      <entry key="M10" value="5.944618766440592" />
+      <entry key="M15" value="14.535614741654234" />
+      <entry key="M30" value="45.095709298697855" />
+      <entry key="H1" value="98.23995345467483" />
+      <entry key="H2" value="187.1861946921833" />
+      <entry key="H4" value="347.7234408087063" />
+      <entry key="D1" value="1023.4475337250694" />
+      <entry key="W1" value="1346.1187737840728" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.2631493290397248E-97" />
-      <entry key="MS500" value="4.171488899243505E-20" />
-      <entry key="S2" value="1.4639552289195163E-5" />
-      <entry key="S5" value="0.014145910495219547" />
-      <entry key="S10" value="0.15849662032859366" />
-      <entry key="S30" value="0.8464223485853595" />
-      <entry key="S60" value="1.3036766718870578" />
-      <entry key="M2" value="1.7494304229632418" />
-      <entry key="M5" value="3.1461963084869145" />
-      <entry key="M10" value="5.489563921998219" />
-      <entry key="M15" value="7.407478774004149" />
-      <entry key="M30" value="11.72870822806512" />
-      <entry key="H1" value="18.169159332146386" />
-      <entry key="H2" value="27.56267427283134" />
-      <entry key="H4" value="41.14662345656076" />
-      <entry key="D1" value="79.6352653461417" />
-      <entry key="W1" value="94.1496544722871" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="1.0590042066E-313" />
+      <entry key="S5" value="9.144260936926312E-126" />
+      <entry key="S10" value="4.2220557830928213E-63" />
+      <entry key="S30" value="2.571598582522243E-21" />
+      <entry key="S60" value="7.526467591686463E-11" />
+      <entry key="M2" value="1.4189661164843905E-5" />
+      <entry key="M5" value="0.025092821732414887" />
+      <entry key="M10" value="0.4022163350472776" />
+      <entry key="M15" value="1.2076264114076976" />
+      <entry key="M30" value="4.474245859471069" />
+      <entry key="H1" value="10.943780882522299" />
+      <entry key="H2" value="22.282857349103832" />
+      <entry key="H4" value="39.660573995772346" />
+      <entry key="D1" value="91.20082387869697" />
+      <entry key="W1" value="111.86405238035861" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9201876506248771" />
-      <entry key="MS500" value="0.984647624222364" />
-      <entry key="S2" value="1.2010649160722064" />
-      <entry key="S5" value="1.732479152017949" />
-      <entry key="S10" value="2.3634658681860232" />
-      <entry key="S30" value="4.252371127177384" />
-      <entry key="S60" value="5.648562717873128" />
-      <entry key="M2" value="7.353995883811095" />
-      <entry key="M5" value="15.966813867259297" />
-      <entry key="M10" value="34.99619665007883" />
-      <entry key="M15" value="51.75868143945002" />
-      <entry key="M30" value="88.6545696477868" />
-      <entry key="H1" value="141.28672380960987" />
-      <entry key="H2" value="228.68638233136042" />
-      <entry key="H4" value="393.7350105098833" />
-      <entry key="D1" value="1018.6161406821406" />
-      <entry key="W1" value="1286.1585307023795" />
+      <entry key="MS100" value="0.8705505632961241" />
+      <entry key="MS500" value="0.9726549474122855" />
+      <entry key="S2" value="0.9930924954370359" />
+      <entry key="S5" value="0.9972312513520695" />
+      <entry key="S10" value="0.9986146661010289" />
+      <entry key="S30" value="0.9995380086305193" />
+      <entry key="S60" value="0.9997689845163616" />
+      <entry key="M2" value="1.0002644194102621" />
+      <entry key="M5" value="1.394353494769266" />
+      <entry key="M10" value="6.34008453192089" />
+      <entry key="M15" value="15.730808198487903" />
+      <entry key="M30" value="49.549813368551426" />
+      <entry key="H1" value="109.1617859199527" />
+      <entry key="H2" value="209.4487043966055" />
+      <entry key="H4" value="387.36671371382664" />
+      <entry key="D1" value="1114.6416248886328" />
+      <entry key="W1" value="1457.9816296248398" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -204,7 +206,7 @@
       <workItem from="1779976249093" duration="1153000" />
       <workItem from="1780178253533" duration="1385000" />
       <workItem from="1780404749206" duration="17503000" />
-      <workItem from="1781014496869" duration="3506000" />
+      <workItem from="1781014496869" duration="8966000" />
     </task>
     <task id="LOCAL-00001" summary="Creating main loop&#10;Connecting Game and Menu classes">
       <option name="closed" value="true" />
@@ -254,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780430269534</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Creating Mediator Pattern.&#10;Enemies destruction.">
+      <option name="closed" value="true" />
+      <created>1781022773000</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1781022773001</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,11 +276,12 @@
     <MESSAGE value="Creating menu interations &#10;Creating ABC class&#10;Creating Factory&#10;Level 1 Background implementation: parallax" />
     <MESSAGE value="feat(level): add HUD texts and level audio assets" />
     <MESSAGE value="Creating Player and Enemies&#10;Moving Player and Enemies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating Player and Enemies&#10;Moving Player and Enemies" />
+    <MESSAGE value="Creating Mediator Pattern.&#10;Enemies destruction." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating Mediator Pattern.&#10;Enemies destruction." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MountainShooter$game.coverage" NAME="game Coverage Results" MODIFIED="1779804147890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
     <SUITE FILE_PATH="coverage/MountainShooter$menu.coverage" NAME="menu Coverage Results" MODIFIED="1779801803585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
-    <SUITE FILE_PATH="coverage/MountainShooter$main.coverage" NAME="main Coverage Results" MODIFIED="1781017370168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MountainShooter$main.coverage" NAME="main Coverage Results" MODIFIED="1781029188100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
