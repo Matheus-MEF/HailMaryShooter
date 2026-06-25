@@ -8,8 +8,9 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 from code.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_GREEN, C_CYAN, EVENT_TIMEOUT, \
-    TIMEOUT_STEP, TIMEOUT_LEVEL
+    TIMEOUT_STEP, TIMEOUT_LEVEL, PLAYER_KEY_SHOOT, WIN_WIDTH, PLAYER_MAX_LIFE
 from code.EntityMediator import EntityMediator
+
 from code.enemy import Enemy
 from code.entity import Entity
 from code.entityFactory import EntityFactory
@@ -17,13 +18,14 @@ from code.player import Player
 
 
 class Level:
-    def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
+    def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int], sound):
         self.timeout = TIMEOUT_LEVEL  # 20 seconds
         self.window = window
         self.name = name
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity(self.name + 'Bg'))
+        self.sound = sound
         player = (EntityFactory.get_entity('Player1'))
         player.score = player_score[0]
         self.entity_list.append(player)
@@ -34,6 +36,21 @@ class Level:
         pg.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         pg.time.set_timer(EVENT_TIMEOUT, 100)
 
+    def draw_hp_bar(self, x, y, entity, color):
+        bar_width = 120
+        bar_height = 10
+
+        max_hp = PLAYER_MAX_LIFE[entity.name]
+        current_hp = max(0, min(entity.health, max_hp))
+
+        # fundo
+        pg.draw.rect(self.window, (60, 60, 60), (x, y, bar_width, bar_height))
+
+        # preenchimento
+        fill = int((current_hp / max_hp) * bar_width)
+
+        pg.draw.rect(self.window, color, (x, y, fill, bar_height))
+
     def run(self, player_score: list[int]):
         pg.mixer_music.load(f'./asset/{self.name}.mp3')
         pg.mixer_music.play(-1)
@@ -41,17 +58,64 @@ class Level:
         while True:
             clock.tick(60)
             for ent in self.entity_list:
-                self.window.blit(source=ent.surf, dest=ent.rect)
+                if isinstance(ent, Player):
+                    ent.draw(self.window)
+                else:
+                    self.window.blit(ent.surf, ent.rect)
                 ent.move()
 
-                if isinstance(ent, (Player, Enemy)):
-                    shoot = ent.shoot()
+                if isinstance(ent, Enemy):
+                    shot = ent.shoot()
+                    if shot is not None:
+                        self.entity_list.append(shot)
+                        self.sound.enemy_shot.play()
+
+                if isinstance(ent, Player):
+                    keys = pg.key.get_pressed()
+                    pressed = keys[PLAYER_KEY_SHOOT[ent.name]]
+                    shoot = ent.shoot(pressed)
                     if shoot is not None:
-                        self.entity_list.append(shoot)
+                        if ent.double_shot:
+                            if ent.name == 'Player1':
+                                self.sound.player1_double_shot.play()
+                            else:
+                                self.sound.player2_double_shot.play()
+                        else:
+                            if ent.name == 'Player1':
+                                self.sound.player1_shot.play()
+                            else:
+                                self.sound.player2_shot.play()
+                        if isinstance(shoot, list):
+                            self.entity_list.extend(shoot)
+                        else:
+                            self.entity_list.append(shoot)
                 if ent.name == 'Player1':
-                    self.level_text(14, f'Player1 - Heath: {ent.health} | Score: {ent.score}', C_GREEN, (10, 20))
+                    self.level_text(
+                        14,
+                        "HP",
+                        C_GREEN,
+                        (10, WIN_HEIGHT - 65)
+                    )
+                    self.draw_hp_bar(
+                        10,
+                        WIN_HEIGHT - 45,
+                        ent,
+                        C_GREEN
+                    )
                 if ent.name == 'Player2':
-                    self.level_text(14, f'Player2 - Heath: {ent.health} | Score: {ent.score}', C_CYAN, (10, 30))
+                    self.level_text(
+                        14,
+                        "HP",
+                        C_CYAN,
+                        (WIN_WIDTH - 150, WIN_HEIGHT - 65)
+                    )
+
+                    self.draw_hp_bar(
+                        WIN_WIDTH - 150,
+                        WIN_HEIGHT - 45,
+                        ent,
+                        C_CYAN
+                    )
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -64,7 +128,7 @@ class Level:
                     self.timeout -= TIMEOUT_STEP
                     if self.timeout == 0:
                         for ent in self.entity_list:
-                            if isinstance(ent, Player) and  ent.name == 'Player1':
+                            if isinstance(ent, Player) and ent.name == 'Player1':
                                 player_score[0] = ent.score
                             if isinstance(ent, Player) and ent.name == 'Player2':
                                 player_score[1] = ent.score
@@ -79,12 +143,23 @@ class Level:
                     return False
 
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', C_WHITE, (10, 5))
-            self.level_text(14, f'fps: {clock.get_fps() :.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
-            self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
+            self.level_text(
+                14,
+                f'{self.name} - TIME: {self.timeout / 1000 :.1f}s',
+                C_WHITE,
+                (WIN_WIDTH // 2 - 120, 5)
+            )
+
+            self.level_text(
+                14,
+                f'FPS: {clock.get_fps() :.0f}',
+                C_WHITE,
+                (WIN_WIDTH // 2 - 10, 5)
+            )
+            # self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
             # COLLISIONS
-            EntityMediator.verify_collision(entity_list=self.entity_list)
-            EntityMediator.verify_health(entity_list=self.entity_list)
+            EntityMediator.verify_collision(entity_list=self.entity_list, sound=self.sound)
+            EntityMediator.verify_health(entity_list=self.entity_list, sound=self.sound)
             pg.display.flip()
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):

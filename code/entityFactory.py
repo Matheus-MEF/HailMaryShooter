@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import random
-
-from code.Const import WIN_WIDTH, WIN_HEIGHT
-from code.background import Background
 from code.enemy import Enemy
 from code.player import Player
+from code.background import Background
+from code.Const import WIN_WIDTH, WIN_HEIGHT
+import random
+from code.HealthPill import HealthPill
+from code.DoubleShot import DoubleShot
+
 
 
 class EntityFactory:
@@ -13,24 +15,54 @@ class EntityFactory:
     @staticmethod
     def get_entity(entity_name: str, position=(0, 0)):
         match entity_name:
+
             case 'Level1Bg':
-                list_bg = []
-                for i in range(7):
-                    list_bg.append(Background(f'Level1Bg{i}', (0, 0)))
-                    list_bg.append(Background(f'Level1Bg{i}', (WIN_WIDTH, 0)))
-                return list_bg
+                return [
+                    Background('Level1Bg', (0, 0)),
+                    Background('Level1Bg', (0, -WIN_HEIGHT))
+                ]
+
             case 'Level2Bg':
-                list_bg = []
-                for i in range(5):
-                    list_bg.append(Background(f'Level2Bg{i}', (0, 0)))
-                    list_bg.append(Background(f'Level2Bg{i}', (WIN_WIDTH, 0)))
-                return list_bg
+                return [
+                    Background('Level2Bg', (0, 0)),
+                    Background('Level2Bg', (0, -WIN_HEIGHT))
+                ]
+
 
             case 'Player1':
-                return Player('Player1', (10, WIN_HEIGHT / 2 - 30))
+                player = Player('Player1', (0, 0))
+
+                x = (WIN_WIDTH - player.rect.width) // 2
+                y = WIN_HEIGHT - player.rect.height - 20
+
+                return Player('Player1', (x, y))
+
             case 'Player2':
-                return Player('Player2', (10, WIN_HEIGHT / 2 + 30))
+                player = Player('Player2', (0, 0))
+
+                x = (WIN_WIDTH - player.rect.width) // 2
+                y = WIN_HEIGHT - player.rect.height - 20
+
+                return Player('Player2', (x, y))
+
             case 'Enemy1':
-                return Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(30, WIN_HEIGHT - 30)))
+                temp_enemy = Enemy('Enemy1', (0, 0))
+                x = random.randint(0, WIN_WIDTH - temp_enemy.rect.width)
+                y = -temp_enemy.rect.height
+                return Enemy('Enemy1', (x, y))
+
             case 'Enemy2':
-                return Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(30, WIN_HEIGHT - 30)))
+                temp_enemy = Enemy('Enemy2', (0, 0))
+                x = random.randint(0, WIN_WIDTH - temp_enemy.rect.width)
+                y = -temp_enemy.rect.height
+                return Enemy('Enemy2', (x, y))
+
+            case 'HealthPill':
+                return HealthPill('HealthPill', position)
+
+            case 'DoubleShot':
+                return DoubleShot('DoubleShot', position)
+
+
+            case _:
+                raise ValueError(f"Entity inválida: {entity_name}")
